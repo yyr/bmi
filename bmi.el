@@ -66,7 +66,7 @@
 (defun bmi-pounds-feet (weight feet inches)
   "Calculate body mass index from WEIGHT pounds, FEET and INCHES."
   (interactive "nPounds:\nnFeet:\nnInches:")
-  
+
   (bmi-pounds-inches weight (+ (* 12 feet) inches)))
                             ;; total inches = 12 * feet + inches
 
@@ -83,6 +83,12 @@
   ;; Convert integers to float for type coercion.
   (bmi-kilos-meters weight (/ (float height) 100)))
                            ;; meters = centimeters / 100
+
+(defun bmi-kilos-feet (weight feet inches)
+  "Calculate body mass index from WEIGHT kilograms and FEET and INCHES."
+  (interactive "nKilograms:\nnFeet:\nnInches:")
+  ;; Convert integers to float for type coercion.
+  (bmi-kilos-meters weight (/ (* 2.54 (+ (* 12 feet) inches)) 100)))
 
 (defun bmi-message (bmi-number)
   "Return body mass index message for BMI-NUMBER."
